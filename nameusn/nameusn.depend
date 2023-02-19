@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1676794556 source:c:\users\aditya\documents\glut\nameusn\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<GL/glut.h>
+
+1676794786 source:c:\users\aditya\desktop\cgproject\nameusn\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<GL/glut.h>
+
