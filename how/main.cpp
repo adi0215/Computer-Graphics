@@ -8,17 +8,33 @@ void init(){
     glMatrixMode(GL_PROJECTION);
     glOrtho(0,50,0,50,0,10);
 }
-char str[15]="CHILDREN'S PARK";
+char str[16]="CHILDREN'S PARK";
 char name[5]="NAME";
 char usn[4]="USN";
-char adi[14]="ADITYA KASHYAP";
-char adv[11]="ADVIKA BHAT";
-char adiusn[10]="4NM20CS014";
-char advusn[10]="4NM20CS018";
+char adi[15]="ADITYA KASHYAP";
+char adv[12]="ADVIKA BHAT";
+char adiusn[11]="4NM20CS014";
+char advusn[11]="4NM20CS018";
+char next[5]="NEXT";
 
+void OnMouseClick(int button, int state, int x, int y)
+{
+  if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+  {
+     if(x>=20 && x<=26 && y>=10 && y<=13)
+        glutInitWindowPosition(-1,-1);
+        glutInitWindowSize(2000,1000);
+
+        glutCreateWindow("New window");
+        glutDisplayFunc(init);
+
+  }
+}
 
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
+
+    //making button
 
     for(int i=0;i<15;i++){
     glColor3f(1.0,1.0,1.0);
@@ -59,6 +75,21 @@ void display(){
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,advusn[i]);
     }
 
+    glColor3f(1,1,1);
+    glBegin(GL_POLYGON);
+        glVertex2i(20,10);
+        glVertex2i(20,13);
+        glVertex2i(26,13);
+        glVertex2i(26,10);
+    glEnd();
+    glFlush();
+
+    for(int i=0;i<strlen(next);i++){
+    glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
+    glRasterPos2i(21+i,11);
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,next[i]);
+    }
+
     glLineWidth(10);
     glColor3f(0.2,0.5,0.8);
 
@@ -73,11 +104,15 @@ void display(){
 int main(int argc,char **argv){
     glutInit(&argc,argv);
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
-    glutInitWindowPosition(10,10);
-    glutInitWindowSize(900,500);
+    glutInitWindowPosition(-1,-1);
+    glutInitWindowSize(2000,1000);
+
     glutCreateWindow("Computer Graphics Project");
+    //glutFullScreen();
     init();
+    glutMouseFunc(OnMouseClick);
     glutDisplayFunc(display);
+
     glutMainLoop();
     return 0;
 }
