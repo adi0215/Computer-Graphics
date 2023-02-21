@@ -16,17 +16,64 @@ char adv[12]="ADVIKA BHAT";
 char adiusn[11]="4NM20CS014";
 char advusn[11]="4NM20CS018";
 char next[5]="NEXT";
+char prev[5]="PREV";
+
+void displayNewWin(){
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(1,0,0);
+    glBegin(GL_POLYGON);
+        glVertex2i(20,10);
+        glVertex2i(20,13);
+        glVertex2i(26,13);
+        glVertex2i(26,10);
+    glEnd();
+    glFlush();
+
+    for(int i=0;i<strlen(next);i++){
+    glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
+    glRasterPos2i(21+i,11);
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,prev[i]);
+    }
+}
+
+void OnMouseClickNew    (int button, int state, int x, int y)
+{
+  if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+  {
+     //printf("%d %d\n",x,y);
+     if(x>=615 && x<=800 && y>=625 && y<=675){
+        glutDestroyWindow(glutGetWindow());
+     }
+
+  }
+}
+
+void playground(){
+    //glutInit(&argc,argv);
+    glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
+    glutInitWindowPosition(-1,-1);
+    glutInitWindowSize(2000,1000);
+
+    glutCreateWindow("Playground");
+    //glutFullScreen();
+    init();
+    glutMouseFunc(OnMouseClickNew);
+    glutDisplayFunc(displayNewWin);
+
+    glutMainLoop();
+
+}
+
+
 
 void OnMouseClick(int button, int state, int x, int y)
 {
   if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
   {
-     if(x>=20 && x<=26 && y>=10 && y<=13)
-        glutInitWindowPosition(-1,-1);
-        glutInitWindowSize(2000,1000);
-
-        glutCreateWindow("New window");
-        glutDisplayFunc(init);
+     printf("%d %d\n",x,y);
+     if(x>=615 && x<=800 && y>=625 && y<=675){
+        playground();
+     }
 
   }
 }
