@@ -10,3 +10,9 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
+1676994002 source:c:\users\aditya\desktop\cgproject\how\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<GL/glut.h>
+
