@@ -23,45 +23,8 @@ char prev[5]="PREV";
 char ugf[28]="UNDER  THE  GUIDANCE  OF:-";
 char sir[21]="DR. PRADEEP  KANCHAN";
 char sir2[19]="MR. PUNEETH  R  P";
+char desc[100][100]={"A simulation of a kids park that contains a see saw, slide, swing, a bench and a Ferris wheel.","The people in the park move with key inputs.","Before the people enter the park they will go through a payment booth."};
 
-
-
-/*void cube(){
-    glBegin(GL_QUADS);
-     glColor3f(1.0,1.0,1.0);
-    glVertex3i(20,20,20);
-    glVertex3i(20,-20,20);
-    glVertex3i(-20,-20,20);
-    glVertex3i(-20,20,20);
-      glColor3f(0.0,1.0,0.0);
-    glVertex3i(20,20,-20);
-    glVertex3i(20,-20,-20);
-    glVertex3i(-20,-20,-20);
-    glVertex3i(-20,20,-20);
-      glColor3f(1.0,0.0,0.0);
-    glVertex3i(20,20,20);
-    glVertex3i(20,20,-20);
-    glVertex3i(-20,20,-20);
-    glVertex3i(-20,20,20);
-      glColor3f(0.0,1.0,1.0);
-    glVertex3i(20,20,20);
-    glVertex3i(20,20,-20);
-    glVertex3i(-20,20,-20);
-    glVertex3i(-20,20,20);
-      glColor3f(1.0,1.0,0.0);
-    glVertex3i(20,20,20);
-    glVertex3i(20,-20,20);
-    glVertex3i(20,-20,-20);
-    glVertex3i(20,20,-20);
-      glColor3f(1.0,0.0,1.0);
-    glVertex3i(-20,20,20);
-    glVertex3i(-20,-20,20);
-    glVertex3i(-20,-20,-20);
-    glVertex3i(-20,20,-20);
-    glEnd();
-    glFlush();
-    }
-*/
 
 
 void slide(){
@@ -131,7 +94,6 @@ void seesaw(){
 void displayNewWin(){
     glClear(GL_COLOR_BUFFER_BIT);
 
-    char fw[]="FERRIS WHEEL";
 
       seesaw();
     glEnd();
@@ -159,28 +121,19 @@ void displayNewWin(){
      glEnd();
     glFlush();
     int i=4;
+    int x=2;
+    int y=40;
     glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
-    glRasterPos2i(6,46);
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"FEATURES");
+    glRasterPos2i(x,y);
+    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"DESCRIPTION:");
+
     glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
-    glRasterPos2i(6,46-(i*1));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"FERRIS WHEEL");
-    glRasterPos2i(6,46-(i*1));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"FERRIS WHEEL");
-    glRasterPos2i(6,46-(i*2));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"SLIDE");
-    glRasterPos2i(6,46-(i*3));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"SEE SAW");
-    glRasterPos2i(6,46-(i*4));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"BENCH");
-    glRasterPos2i(6,46-(i*5));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"SWING");
-    glRasterPos2i(6,46-(i*6));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"SHIP");
-    glRasterPos2i(6,46-(i*7));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"LAKE");
-    glRasterPos2i(6,46-(i*8));
-    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,"MOVING PEOPLE");
+
+    for(int j=1;j<=3;j++){
+        glRasterPos2i(x,y-1-(i*j));
+        glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,desc[j-1]);
+    }
+
      glEnd();
     glFlush();
 
@@ -193,7 +146,7 @@ void OnMouseClickNew    (int button, int state, int x, int y)
 {
   if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
   {
-     //printf("%d %d\n",x,y);
+     printf("%d %d\n",x,y);
      if(x>=615 && x<=800 && y>=710 && y<=760){
         glutDestroyWindow(glutGetWindow());
      }
