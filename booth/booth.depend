@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1678634374 source:c:\users\advik\documents\computer-graphics\booth\main.c
+	<stdio.h>
+	<stdlib.h>
+	<GL/glut.h>
+

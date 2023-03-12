@@ -27,7 +27,7 @@ char desc[100][100]={"A simulation of a kids park that contains a see saw, slide
 
 
 
-void slide(){
+void slide(){//WINDOW 2
     glColor3f(0.7,0.6,0.8);
         glLineWidth(10);
 
@@ -68,7 +68,7 @@ void slide(){
 
 }
 
-void seesaw(){
+void seesaw(){//WINDOW 2
     glColor3f(1.0,0.8,0.4);
     glLineWidth(20);
     glBegin(GL_LINES);
@@ -91,7 +91,7 @@ void seesaw(){
 
 
 }
-void displayNewWin(){
+void displayNewWin(){//WINDOW 2
     glClear(GL_COLOR_BUFFER_BIT);
 
 
@@ -114,12 +114,27 @@ void displayNewWin(){
     glEnd();
     glFlush();
 
+    glColor3f(0,0,1);
+    glBegin(GL_POLYGON);
+        glVertex2i(30,5);
+        glVertex2i(30,8);
+        glVertex2i(36,8);
+        glVertex2i(36,5);
+    glEnd();
+    glFlush();
+
 
     glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
     glRasterPos2i(22,6);
     glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,prev);
      glEnd();
+
+     glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
+    glRasterPos2i(32,6);
+    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24,next);
+     glEnd();
     glFlush();
+
     int i=4;
     int x=2;
     int y=40;
@@ -142,8 +157,16 @@ void displayNewWin(){
 
 }
 
-void OnMouseClickNew    (int button, int state, int x, int y)
+void OnMouseClickNew    (int button, int state, int x, int y)//WINDOW 2
 {
+  if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+  {
+     printf("%d %d\n",x,y);
+     if(x>=615 && x<=800 && y>=710 && y<=760){
+        glutDestroyWindow(glutGetWindow());
+     }
+
+  }
   if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
   {
      printf("%d %d\n",x,y);
@@ -154,13 +177,13 @@ void OnMouseClickNew    (int button, int state, int x, int y)
   }
 }
 
-void playground(){
+void description(){//WINDOW 2
     //glutInit(&argc,argv);
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(-1,-1);
     glutInitWindowSize(2000,1000);
 
-    glutCreateWindow("Playground");
+    glutCreateWindow("DESCRIPTION");
     //glutFullScreen();
     init();
     glutMouseFunc(OnMouseClickNew);
@@ -178,7 +201,7 @@ void OnMouseClick(int button, int state, int x, int y)
   {
     // printf("%d %d\n",x,y);
      if(x>=615 && x<=800 && y>=710 && y<=760){
-        playground();
+        description();
      }
 
   }
