@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1678791455 source:c:\users\aditya\desktop\cgproject\insideview\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<GL/glut.h>
+	<GL/freeglut.h>
+
