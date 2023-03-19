@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/glut.h>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 032c48961ecf6ad4bd8d83a3f0a70c32883d83f8
 int custCount=0;
 int tcCount=0;
 char welcome[20]="welcome sir";
@@ -100,9 +104,15 @@ void onKey(unsigned char key,int x,int y){
        tcCount++;
     }
 
+<<<<<<< HEAD
     //else if(key=='n'||key=='N'){
         //innerView
     //}
+=======
+    else if(key=='n'||key=='N'){
+        innerView
+    }
+>>>>>>> 032c48961ecf6ad4bd8d83a3f0a70c32883d83f8
     glutPostRedisplay();
     }
 void OnMouseClick (int button, int state, int x, int y)//WINDOW 2
