@@ -282,6 +282,7 @@ void tree(float x,float y){
 
     }
 void personinside(float x,float y){
+    glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,0.8,0.4);
 
 
@@ -329,12 +330,19 @@ void lawn(){
 
 void displayInside(){
 
-    lawn();
-    slide();
-    seesaw();
-    path();
-    bench();
-    personinside(220,900);
+
+    int p1=900;
+    while(p1<2650){
+        lawn();
+        slide();
+        seesaw();
+        path();
+        bench();
+        personinside(220,p1);
+        p1+50;
+        sleep(50);
+        glutPostRedisplay();
+    }
     personinside(3720,2200);
     personinside(1520,1000);
     sun(4900,5000,150);
