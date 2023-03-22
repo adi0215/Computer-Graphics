@@ -56,8 +56,13 @@ void sky()
                  glBegin(GL_QUADS);
     glVertex2d(-150.0,0.0);
     glVertex2d(150.0,0.0);
+<<<<<<< HEAD
     glVertex2d(150.0,-8);
     glVertex2d(-150.0,-8);
+=======
+    glVertex2d(150.0,-10);
+    glVertex2d(-150.0,-10);
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     glEnd();
     glPopMatrix();
 
@@ -2148,6 +2153,7 @@ void display(void)
 
 
 
+<<<<<<< HEAD
 
 
     /*glPushMatrix();
@@ -2177,6 +2183,25 @@ void display(void)
     hillTree();
 
     glidder();
+=======
+    sky();
+    //hillSide();
+
+
+    field();
+    //river();
+
+    //sun();
+    //cloudLeft();
+    //cloudRightUp();
+    //cloudRight();
+    //cloudMiddle();
+    //hillTree();
+
+    glidder();
+    swing();
+/*
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     if(isbaby!=8)
     {
         ship();
@@ -2184,6 +2209,10 @@ void display(void)
         swing();
 
     }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     bench();
     if(isbaby==0||isbaby==6||isbaby==8)
     {
@@ -2191,7 +2220,11 @@ void display(void)
     }
     slide();
 
+<<<<<<< HEAD
 
+=======
+/*
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     if(isbaby==8)
     {
         ship();
@@ -2200,7 +2233,11 @@ void display(void)
 
     }
 
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     //glutIdleFunc(ship);
     //cruddle();
 
@@ -2213,7 +2250,11 @@ void display(void)
     glFlush();
 }
 
+<<<<<<< HEAD
 void init(void)
+=======
+void initInside(void)
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
 {
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glOrtho(-20.0, 20.0, -10.0, 10.0, -15.0, 15.0);
@@ -2336,11 +2377,19 @@ void normal_key(unsigned char key, int x, int y)
 
         	break;*/
 
+<<<<<<< HEAD
     case 'f': //jump into boat
         dolnay=-1;
         glutPostRedisplay();
         break;
 
+=======
+    /*case 'f': //jump into boat
+        dolnay=-1;
+        glutPostRedisplay();
+        break;
+    */
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     case 'u':
         isbaby=1;
         dolnay=0.1;
@@ -2391,7 +2440,11 @@ void normal_key(unsigned char key, int x, int y)
         by=-1;
         glutPostRedisplay();
         break;
+<<<<<<< HEAD
 
+=======
+    /*
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     case 'w':
         // wx=wx-10;
         // glutPostRedisplay();
@@ -2399,7 +2452,11 @@ void normal_key(unsigned char key, int x, int y)
         isbaby=5;
         glutIdleFunc(windMove);
         break;
+<<<<<<< HEAD
 
+=======
+    */
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
 
     case 'o':
         //isbaby=0;
@@ -2434,7 +2491,11 @@ void normal_key(unsigned char key, int x, int y)
         glutPostRedisplay();
         break;
 
+<<<<<<< HEAD
 
+=======
+    /*
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     case 'b':
         isbaby=8;
         glutPostRedisplay();
@@ -2449,7 +2510,11 @@ void normal_key(unsigned char key, int x, int y)
             //shipx=0;
         }
 
+<<<<<<< HEAD
 
+=======
+    */
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
 
 
     default:
@@ -2467,14 +2532,24 @@ int main(int argc,char **argv)
     glutInitWindowSize (1600, 1000);
     //glutInitWindowSize (1000, 1000);
     glutInitWindowPosition (0, 0);
+<<<<<<< HEAD
     glutCreateWindow ("Translating Circle");
 
     init();
+=======
+    glutCreateWindow ("InsideView");
+
+    initInside();
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     glutDisplayFunc(display);
     //glutKeyboardFunc(my_keyboard);
     glutSpecialFunc(spe_key);
     glutKeyboardFunc(normal_key);
+<<<<<<< HEAD
     PlaySound("2ndChoice.wav", NULL, SND_FILENAME| SND_ASYNC);
+=======
+    //PlaySound("2ndChoice.wav", NULL, SND_FILENAME| SND_ASYNC);
+>>>>>>> e70ef13b688ce556c74c913d7135b502e7c0217d
     glutMainLoop();
     return 0;   /* ANSI C requires main to return int. */
 }
