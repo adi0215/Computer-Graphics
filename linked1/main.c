@@ -1436,193 +1436,6 @@ void baby()
 
     glPopMatrix();
 }
-void baby1()
-{   int x=10,y=10;
-    glPushMatrix();
-    if(isbaby==0)
-    {
-        // printf("%f\n",by);
-        glTranslated(0+bx,0+by,0);
-        glScalef(0.05,0.07,0);
-    }
-
-    else if(isbaby==5)
-    {
-        glTranslated(-0.5,2,0);
-        //glTranslated(0+bx,0+by,0);
-        glScaled(0.07,0.2,0);
-    }
-    else if(isbaby==6)
-    {
-        glTranslated(0+bx,0+by,0);
-        //printf("HI");
-        glScalef(0.04,0.06,0);
-    }
-
-    else if(isbaby==8)
-    {
-
-        glTranslated(0+shipx,3,0);
-        glTranslated(0,0,0);
-        //printf("HI");
-        glScalef(0.04,0.04,0);
-    }
-
-    //glRotated(20,1,1,0);
-    glPushMatrix();   //jama top
-    glColor3f(1,0,0);
-    glBegin(GL_POLYGON);
-    glVertex2d(-6+x,-6+y);
-    glVertex2d(-11+x,-9+y);
-    glVertex2d(-9+x,-13+y);
-    glVertex2d(-6+x,-11+y);
-    glVertex2d(-6+x,-22+y);
-    glVertex2d(6+x,-22+y);
-    glVertex2d(6+x,-11+y);
-    glVertex2d(9+x,-13+y);
-    glVertex2d(11+x,-9+y);
-    glVertex2d(6+x,-6+y);
-    glVertex2d(4+x,-10+y);
-    glVertex2d(-4+x,-10+y);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();     //left hand
-    glColor3f(0.87,0.72,0.53);
-    glBegin(GL_QUADS);
-    glVertex2d(-11+x,-9+y);
-    glVertex2d(-9+x,-13+y);
-    glVertex2d(-13+x,-20+y);
-    glVertex2d(-16+x,-18+y);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();     //left hand palm
-    glTranslated(-15,-20,0);
-    glColor3f(0.87,0.72,0.53);
-    circle(3,2.5);
-    glPopMatrix();
-
-
-    glPushMatrix();     //right hand
-    glColor3f(0.87,0.72,0.53);
-    glBegin(GL_QUADS);
-    glVertex2d(11+x,-9+y);
-    glVertex2d(9+x,-13+y);
-    glVertex2d(13+x,-20+y);
-    glVertex2d(16+x,-18+y);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();         //right hand palm
-    glTranslated(15,-20,0);
-    glColor3f(0.87,0.72,0.53);
-    circle(3,2.5);
-    glPopMatrix();
-
-
-    glPushMatrix();     //skirt
-    glColor3f(0,0,1);
-    glBegin(GL_QUADS);
-    glVertex2d(-6+x,-22+y);
-    glVertex2d(6+x,-22+y);
-    glVertex2d(13+x,-32+y);
-    glVertex2d(-13+x,-32+y);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();         //left leg
-    glColor3f(0.87,0.72,0.53);
-    glBegin(GL_QUADS);
-    glVertex2d(-6+x,-32+y);
-    glVertex2d(-2+x,-32+y);
-    glVertex2d(-2+x,-38+y);
-    glVertex2d(-6+x,-38+y);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();     //right leg
-    glColor3f(0.87,0.72,0.53);
-    glBegin(GL_QUADS);
-    glVertex2d(6+x,-32+y);
-    glVertex2d(2+x,-32+y);
-    glVertex2d(2+x,-38+y);
-    glVertex2d(6+x,-38+y);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();     //right shoe
-    glColor3f(0,0,0);
-    glBegin(GL_QUADS);
-    glVertex2d(10+x,-42+y);
-    glVertex2d(2+x,-42+y);
-    glVertex2d(2+x,-38+y);
-    glVertex2d(6+x,-38+y);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();         //left shoe
-    glColor3f(0,0,0);
-    glBegin(GL_QUADS);
-    glVertex2d(-10+x,-42+y);
-    glVertex2d(-2+x,-42+y);
-    glVertex2d(-2+x,-38+y);
-    glVertex2d(-6+x,-38+y);
-    glEnd();
-    glPopMatrix();
-
-
-
-    glPushMatrix(); //hair
-    glColor3f(0,0,0);
-    circle(9,10);
-    glPopMatrix();
-
-
-
-    glPushMatrix();         //head, neck, nose ,eye, lips
-    glColor3f(0.87,0.72,0.53);
-    circle(7,6);            //head
-    glBegin(GL_QUADS);      //neck
-    glVertex2d(-6+x,-6+y);
-    glVertex2d(6+x,-6+y);
-    glVertex2d(4+x,-10+y);
-    glVertex2d(-4+x,-10+y);
-    glEnd();
-    glPushMatrix();
-    glColor3f(0,0,0);
-    glBegin(GL_LINES);      //right eye
-
-    glVertex2d(4+x,3+y);
-    glVertex2d(1+x,3+y);
-
-    glEnd();
-    glBegin(GL_LINES);      //lips
-
-    glVertex2d(2+x,-3+y);
-    glVertex2d(-2+x,-3+y);
-
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();
-    glColor3f(0,0,0);
-    glBegin(GL_LINES);      //left eye
-
-    glVertex2d(-4+x,3+y);
-    glVertex2d(-1+x,3+y);
-
-    glEnd();
-    circle(0.5,2);      //nose
-    glPopMatrix();
-
-    glPopMatrix();
-
-
-    glPopMatrix();
-}
-
 
 
 void babySlide()
@@ -2360,7 +2173,7 @@ void displayInside(void)
 
     glidder();
     swing();
-    baby1();
+    //baby1();
 /*
     if(isbaby!=8)
     {
@@ -2704,7 +2517,7 @@ void delay(int number_of_seconds)
     // looping till required time is not achieved
     while (clock() < start_time + milli_seconds)
         ;
-}/*
+}
 void chatDisplay(){
             delay(1);
         for(int i=0;i<4;i++){
@@ -2718,7 +2531,7 @@ void chatDisplay(){
 
 
 }
-*/
+
 void custBubble(){
     int x=790,y=510;
 
