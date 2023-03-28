@@ -22,7 +22,7 @@ static float	ty	=  5.0;
 
 static float cloudLeftMove=0,shipMove=70,shipx=0;
 static float xx=10,yy=13;
-
+int stopSeesaw=0;
 void baby();
 
 void circle(float radius_x, float radius_y)
@@ -1438,6 +1438,194 @@ void baby()
 }
 
 
+void baby1()
+{   int x=50,y=50;
+    glPushMatrix();
+    if(isbaby==0)
+    {
+        // printf("%f\n",by);
+        glTranslated(0+bx,0+by,0);
+        glScalef(0.05,0.07,0);
+    }
+
+    else if(isbaby==5)
+    {
+        glTranslated(-0.5,2,0);
+        //glTranslated(0+bx,0+by,0);
+        glScaled(0.07,0.2,0);
+    }
+    else if(isbaby==6)
+    {
+        glTranslated(0+bx,0+by,0);
+        //printf("HI");
+       glScalef(0.04,0.06,0);
+    }
+
+    else if(isbaby==8)
+    {
+
+        glTranslated(0+shipx,3,0);
+        glTranslated(0,0,0);
+        //printf("HI");
+        glScalef(0.04,0.04,0);
+    }
+
+    //glRotated(20,1,1,0);
+    glPushMatrix();   //jama top
+    glColor3f(1,0,0);
+    glBegin(GL_POLYGON);
+    glVertex2d(-6+x,-6+y);
+    glVertex2d(-11+x,-9+y);
+    glVertex2d(-9+x,-13+y);
+    glVertex2d(-6+x,-11+y);
+    glVertex2d(-6+x,-22+y);
+    glVertex2d(6+x,-22+y);
+    glVertex2d(6+x,-11+y);
+    glVertex2d(9+x,-13+y);
+    glVertex2d(11+x,-9+y);
+    glVertex2d(6+x,-6+y);
+    glVertex2d(4+x,-10+y);
+    glVertex2d(-4+x,-10+y);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();     //left hand
+    glColor3f(0.87,0.72,0.53);
+    glBegin(GL_QUADS);
+    glVertex2d(-11+x,-9+y);
+    glVertex2d(-9+x,-13+y);
+    glVertex2d(-13+x,-20+y);
+    glVertex2d(-16+x,-18+y);
+    glEnd();
+
+    glPopMatrix();
+
+    glPushMatrix();     //left hand palm
+    glTranslated(-15,-20,0);
+    glColor3f(0.87,0.72,0.53);
+    circle(3+x/12,2.5+y/12);
+    glPopMatrix();
+
+
+    glPushMatrix();     //right hand
+    glColor3f(0.87,0.72,0.53);
+    glBegin(GL_QUADS);
+    glVertex2d(11+x,-9+y);
+    glVertex2d(9+x,-13+y);
+    glVertex2d(13+x,-20+y);
+    glVertex2d(16+x,-18+y);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();         //right hand palm
+    glTranslated(15,-20,0);
+    glColor3f(0.87,0.72,0.53);
+    circle(3+x/12,2.5+y/12);
+    glPopMatrix();
+
+
+    glPushMatrix();     //skirt
+    glColor3f(0,0,1);
+    glBegin(GL_QUADS);
+    glVertex2d(-6+x,-22+y);
+    glVertex2d(6+x,-22+y);
+    glVertex2d(13+x,-32+y);
+    glVertex2d(-13+x,-32+y);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();         //left leg
+    glColor3f(0.87,0.72,0.53);
+    glBegin(GL_QUADS);
+    glVertex2d(-6+x,-32+y);
+    glVertex2d(-2+x,-32+y);
+    glVertex2d(-2+x,-38+y);
+    glVertex2d(-6+x,-38+y);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();     //right leg
+    glColor3f(0.87,0.72,0.53);
+    glBegin(GL_QUADS);
+    glVertex2d(6+x,-32+y);
+    glVertex2d(2+x,-32+y);
+    glVertex2d(2+x,-38+y);
+    glVertex2d(6+x,-38+y);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();     //right shoe
+    glColor3f(0,0,0);
+    glBegin(GL_QUADS);
+    glVertex2d(10+x,-42+y);
+    glVertex2d(2+x,-42+y);
+    glVertex2d(2+x,-38+y);
+    glVertex2d(6+x,-38+y);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();         //left shoe
+    glColor3f(0,0,0);
+    glBegin(GL_QUADS);
+    glVertex2d(-10+x,-42+y);
+    glVertex2d(-2+x,-42+y);
+    glVertex2d(-2+x,-38+y);
+    glVertex2d(-6+x,-38+y);
+    glEnd();
+    glPopMatrix();
+
+
+
+    glPushMatrix(); //hair
+    glColor3f(0,0,0);
+    circle(9+x/12,10+y/12);
+    glPopMatrix();
+
+
+
+    glPushMatrix();         //head, neck, nose ,eye, lips
+    glColor3f(0.87,0.72,0.53);
+    circle(7+x/12,6+y/12);            //head
+    glBegin(GL_QUADS);      //neck
+    glVertex2d(-6+x,-6+y);
+    glVertex2d(6+x,-6+y);
+    glVertex2d(4+x,-10+y);
+    glVertex2d(-4+x,-10+y);
+    glEnd();
+    glPushMatrix();
+    glColor3f(0,0,0);
+    glBegin(GL_LINES);      //right eye
+
+    glVertex2d(4+x,3+y);
+    glVertex2d(1+x,3+y);
+
+    glEnd();
+    glBegin(GL_LINES);      //lips
+
+    glVertex2d(2+x,-3+y);
+    glVertex2d(-2+x,-3+y);
+
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();
+    glColor3f(0,0,0);
+    glBegin(GL_LINES);      //left eye
+
+    glVertex2d(-4+x,3+y);
+    glVertex2d(-1+x,3+y);
+
+    glEnd();
+    circle(0.5+x/12,2+y/12);      //nose
+    glPopMatrix();
+
+    glPopMatrix();
+
+
+    glPopMatrix();
+}
+
+
 void babySlide()
 {
 
@@ -1698,6 +1886,104 @@ void slide()
 
 }
 
+/*
+void seesawdown(){
+
+        glPushMatrix();
+    //glRotatef(-15,1,0,0);
+    glTranslated(-18.5,-6,0);
+    glColor3f(0,0,0.54);
+    glScalef(0.8,0.5,0);
+    //glPushMatrix(); // glidder body
+    //glRotatef(-glAngle,0,0,1);
+
+        glPushMatrix();
+        glBegin(GL_QUADS);
+        glVertex2f(0,0);
+        glVertex2f(13,3.0);
+        glVertex2f(13,3.3);
+        glVertex2f(0,0.3);
+        glEnd();
+        glPopMatrix();
+
+        glPushMatrix();
+        glBegin(GL_QUADS);
+        glVertex2d(3.0,0.9);
+        glVertex2d(3.0,1.5);
+        glVertex2d(3.3,1.5);
+        glVertex2d(3.3,0.9);
+        glEnd();
+        glPopMatrix();
+
+        glPushMatrix();
+        glBegin(GL_QUADS);
+        glVertex2d(10.0,2.4);
+        glVertex2d(10.0,3.0);
+        glVertex2d(9.7,3.0);
+        glVertex2d(9.7,2.4);
+        glEnd();
+        glPopMatrix();
+        glPushMatrix();  //glidder bottom
+        glTranslated(6.2,1.0,1);
+        //glRotatef(glAngle,0,0,1);
+        glBegin(GL_QUADS);
+        glVertex2d(0.0,0.5);
+        glVertex2d(0.0,-2.0);
+        glVertex2d(0.5,-2.0);
+        glVertex2d(0.5,0.6);
+        glEnd();
+        glPopMatrix();
+glPopMatrix();
+
+}
+void seesawup(){
+
+ glPushMatrix();
+    //glRotatef(-15,1,0,0);
+    glTranslated(-18.5,-6,0);
+    glColor3f(0,0,0.54);
+    glScalef(0.8,0.5,0);
+    //glPushMatrix(); // glidder body
+    //glRotatef(-glAngle,0,0,1);
+        glPushMatrix();
+        glBegin(GL_QUADS);
+        glVertex2f(0,3.0);
+        glVertex2f(0,3.3);
+        glVertex2f(13,0.3);
+        glVertex2f(13,0);
+        glEnd();
+        glPopMatrix();
+        glPushMatrix();
+        glBegin(GL_QUADS);
+        glVertex2d(3.0,2.4);
+        glVertex2d(3.0,3.0);
+        glVertex2d(3.3,3.0);
+        glVertex2d(3.3,2.4);
+        glEnd();
+        glPopMatrix();
+
+        glPushMatrix();
+        glBegin(GL_QUADS);
+        glVertex2d(10.0,0.9);
+        glVertex2d(10.0,1.5);
+        glVertex2d(9.7,1.5);
+        glVertex2d(9.7,0.9);
+        glEnd();
+        glPopMatrix();
+        glPushMatrix();  //glidder bottom
+        glTranslated(6.2,1.0,1);
+        //glRotatef(glAngle,0,0,1);
+        glBegin(GL_QUADS);
+        glVertex2d(0.0,0.6);
+        glVertex2d(0.0,-2.0);
+        glVertex2d(0.5,-2.0);
+        glVertex2d(0.5,0.5);
+        glEnd();
+        glPopMatrix();
+        glPopMatrix();
+
+}*/
+
 void glidder()
 {
     glPushMatrix();
@@ -1799,6 +2085,7 @@ void glidder()
     glPushMatrix();
     if(isbaby==2)
     {
+
         if(glUp==0)
         {
             glRotatef(20,1,1,1);
@@ -2150,6 +2437,10 @@ void glidder()
     //glPopMatrix();
     glPopMatrix();
 }
+
+
+
+
 void displayInside(void)
 {
 
@@ -2173,6 +2464,9 @@ void displayInside(void)
 
     glidder();
     swing();
+   // moveSeesaw();
+
+    //seesawdown();
     //baby1();
 /*
     if(isbaby!=8)
@@ -2187,6 +2481,7 @@ void displayInside(void)
     if(isbaby==0||isbaby==6||isbaby==8)
     {
         baby();
+       // baby1();
 
     }
     slide();
@@ -2321,6 +2616,16 @@ void slideMove()
 }
 
 
+void moveSeesaw(){
+    for(int i=0;i<10;i++){
+     glUp=0;
+     glidder();
+     delay(2);
+     glUp=1;
+
+    }
+
+}
 void normal_key(unsigned char key, int x, int y)
 {
     switch (key)
@@ -2358,11 +2663,15 @@ void normal_key(unsigned char key, int x, int y)
 
     case 'g':
         isbaby=2;
+
+        moveSeesaw();
+
         glutPostRedisplay();
         break;
 
     case 'j':
         isbaby=0;
+        stopSeesaw=1;
         bx=-17;
         by=-6;
         glUp=1;
@@ -2784,8 +3093,7 @@ void displayBooth(){
     window();
     person(700,500);
     ticketer(450,510);
-    //bubble(760,510);
-//    chatDisplay();
+    //chatDisplay();
     glFlush();
 }
 
